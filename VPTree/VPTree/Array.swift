@@ -1,14 +1,8 @@
-//
-//  Array.swift
-//  VPTree
-//
-//  Created by Laurent CHENAY on 07/06/2015.
-//  Copyright (c) 2015 Sunday. All rights reserved.
-//
-
-import Foundation
-
-private func split<T: Comparable>(inout array: [T], nbItemLeft: Int, nbItemRight: Int) -> (Array<T>, Array<T>) {
+private func split<T: Comparable>(
+    _ array: inout [T],
+    _ nbItemLeft: Int,
+    _ nbItemRight: Int
+) -> (Array<T>, Array<T>) {
     var left: Array<T> = []
     var right: Array<T> = []
     var middle: Array<T> = []
@@ -52,20 +46,26 @@ private func split<T: Comparable>(inout array: [T], nbItemLeft: Int, nbItemRight
     }
     
     if left.count > nbItemLeft {
-        let (subLeft: [T], subRight: [T]) = split(&left, nbItemLeft, nbItemRight - right.count)
-        return (subLeft, right + subRight)
+        let sub: (left: [T], right: [T])
+            = split(&left, nbItemLeft, nbItemRight - right.count)
+        return (sub.left, right + sub.right)
     } else if right.count > nbItemRight {
-        let (subLeft: [T], subRight: [T]) = split(&right, nbItemLeft - left.count, nbItemRight)
-        return (left + subLeft, subRight)
+        let sub: (left: [T], right: [T])
+            = split(&right, nbItemLeft - left.count, nbItemRight)
+        return (left + sub.left, sub.right)
     } else {
         return (left, right)
     }
 }
 
 internal extension Array {
-    internal func splitByMedian<T where T: Comparable>() -> ([T], [T]) {
+    
+    func splitByMedian<T>() -> ([T], [T]) where T: Comparable {
         let mid = count / 2
-        var array: Array<T> = self.map {return $0 as! T}
-        return split(&array, count-mid, mid)
+        var array: Array<T> = self.map {
+            return $0 as! T
+        }
+        return VPTree.split(&array, count-mid, mid)
     }
+    
 }

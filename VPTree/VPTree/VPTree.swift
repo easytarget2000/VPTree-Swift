@@ -1,30 +1,28 @@
-import Foundation
+infix operator ~~
 
-infix operator ~~ {
+protocol Distance {
+    static func ~~(lhs: Self, rhs: Self) -> Double
 }
 
-public protocol Distance {
-    func ~~(lhs: Self, rhs: Self) -> Double
-}
-
-public class VPTree<T: Distance> {
+final class VPTree<T: Distance> {
     internal var firstNode: VPNode<T>
     
     init(elements: [T]) {
         firstNode = VPNode<T>(elements: elements)!;
     }
     
-    private func _neighbors(point: T, limit: Int?, maxDistance: Double? = nil) -> [T] {
+    private func _neighbors(point: T, limit: Int?, maxDistance: Double? = nil)
+    -> [T] {
         var tau: Double = maxDistance ?? Double.infinity
         var nodesToTest: [VPNode<T>?] = [firstNode]
         
         var neighbors = PriorityQueue<T>(limit: limit)
         
         while(nodesToTest.count > 0) {
-            if let node = nodesToTest.removeAtIndex(0) {
+            if let node = nodesToTest.remove(at: 0) {
                 let d = point ~~ node.vpPoint
                 if d <= tau {
-                    neighbors.push(d, item: node.vpPoint)
+                    neighbors.push(weight: d, item: node.vpPoint)
                     if maxDistance == nil {
                         tau = neighbors.biggestWeigth
                     }
@@ -56,10 +54,11 @@ public class VPTree<T: Distance> {
     }
     
     func findNeighbors(point: T, limit: Int) -> [T] {
-        return _neighbors(point, limit: limit, maxDistance: nil)
+        return _neighbors(point: point, limit: limit, maxDistance: nil)
     }
     
     func findClosest(point: T, maxDistance: Double) -> [T] {
-        return _neighbors(point, limit: nil, maxDistance: maxDistance)
+        return _neighbors(point: point, limit: nil, maxDistance: maxDistance)
     }
+    
 }

@@ -1,6 +1,4 @@
-import Foundation
-
-class PriorityQueue<T> {
+struct PriorityQueue<T> {
     private var _items: [(weight: Double, item: T)] = []
     var limit: Int?
     
@@ -11,19 +9,19 @@ class PriorityQueue<T> {
     init() {
     }
     
-    func push(weight: Double, item: T) {
+    mutating func push(weight: Double, item: T) {
         var index = 0
         
         while (index < _items.count) {
             if (weight < _items[index].weight) {
                 break
             }
-            index++
+            index += 1
         }
         
-        _items.insert((weight: weight, item: item), atIndex: index)
+        _items.insert((weight: weight, item: item), at: index)
         
-        if limit != nil && _items.count > limit {
+        if let limit = limit, _items.count > limit {
             _items.removeLast()
         }
     }

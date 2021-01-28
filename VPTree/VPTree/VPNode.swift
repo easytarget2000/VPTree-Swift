@@ -1,14 +1,12 @@
-import Foundation
-
-private func <<T>(left: Point<T>, right: Point<T>) -> Bool {
+private func <<T>(left: VPoint<T>, right: VPoint<T>) -> Bool {
     return left.d < right.d
 }
 
-private func ==<T>(left: Point<T>, right: Point<T>) -> Bool {
+private func ==<T>(left: VPoint<T>, right: VPoint<T>) -> Bool {
     return left.d == right.d
 }
 
-private class Point<T>: Comparable {
+private final class VPoint<T>: Comparable {
     var d: Double
     let point: T
     
@@ -18,7 +16,7 @@ private class Point<T>: Comparable {
     }
 }
 
-internal class VPNode<T: Distance> {
+internal final class VPNode<T: Distance> {
     var vpPoint: T!
     var points: [T] = []
     var mu: Double?
@@ -29,26 +27,26 @@ internal class VPNode<T: Distance> {
         self.init(elements: [T](elements))
     }
     
-    private func convertion (item: Point<T>) -> T {
+    private func convertion (item: VPoint<T>) -> T {
         return item.point
     }
     
     convenience init?(elements: [T]) {
-        let array: [Point<T>] = elements.map {
-            (item: T) -> Point<T> in
-            return Point<T>(d: 0, point: item)
+        let array: [VPoint<T>] = elements.map {
+            (item: T) -> VPoint<T> in
+            return VPoint<T>(d: 0, point: item)
         }
         
         self.init(elements: array)
     }
     
-    private init?(elements: [Point<T>]) {
+    private init?(elements: [VPoint<T>]) {
         if elements.count == 0 {
             return nil
         }
         var elements = elements
         //Random get of the VP points
-        self.vpPoint = elements.removeAtIndex(0).point
+        self.vpPoint = elements.remove(at: 0).point
         
         if elements.count == 0 {
             return
@@ -58,11 +56,12 @@ internal class VPNode<T: Distance> {
             item.d = item.point ~~ self.vpPoint
         }
         
-        let (left: [Point<T>], right: [Point<T>]) = elements.splitByMedian()
+        let splitElements: (left: [VPoint<T>], right: [VPoint<T>])
+            = elements.splitByMedian()
         
-        mu = left.last!.d
-        leftChild = VPNode(elements: left)
-        rightChild = VPNode(elements: right)
+        mu = splitElements.left.last!.d
+        leftChild = VPNode(elements: splitElements.left)
+        rightChild = VPNode(elements: splitElements.right)
     }
     
     var isLeaf: Bool {
