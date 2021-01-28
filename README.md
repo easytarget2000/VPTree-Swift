@@ -1,6 +1,3 @@
-Inspired from https://github.com/huyng/algorithms/blob/master/vptree/vptree.py
+Fork of [lchenay/VPTree-Swift](https://github.com/lchenay/VPTree-Swift), which in turn is inspired by [huyng/algorithms](https://github.com/huyng/algorithms/blob/master/vptree/vptree.py) for Python.
 
-A quick implementation of VPTree in swift
-
-Currently it construct the Tree without any optimisation or rebalancing the node.
-
+The purpose of this fork is to update the repository to the latest Swift 5 changes.
