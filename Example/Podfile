@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'VPTree_Example' do
+  pod 'VPTree', :path => '../'
+
+  target 'VPTree_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
