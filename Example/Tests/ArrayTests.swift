@@ -1,3 +1,4 @@
+@testable import VPTree
 import XCTest
 
 class ArrayTests: XCTestCase {
