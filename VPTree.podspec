@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'VPTree'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'A vantage-point data structure for efficient nearest neighbor searching.'
 
   s.description      = "Fork of lchenay/VPTree-Swift, which in turn is inspired by huyng/algorithms for Python. The purpose of this fork is to update the repository to the latest Swift 5 changes."
