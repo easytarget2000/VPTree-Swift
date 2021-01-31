@@ -19,11 +19,11 @@ Pod::Spec.new do |s|
 
   s.description      = "Fork of lchenay/VPTree-Swift, which in turn is inspired by huyng/algorithms for Python. The purpose of this fork is to update the repository to the latest Swift 5 changes."
 
-  s.homepage         = 'https://github.com/easytarget2000/VPTree'
+  s.homepage         = 'https://github.com/easytarget2000/VPTree-Swift'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'easytarget2000' => 'michel@easy-target.eu' }
-  s.source           = { :git => 'https://github.com/easytarget2000/VPTree.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/easytarget2000/VPTree-Swift.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '12.0'
