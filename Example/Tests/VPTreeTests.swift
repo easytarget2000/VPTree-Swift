@@ -2,6 +2,8 @@
 import XCTest
 
 class VPTreeTests: XCTestCase {
+        
+    private let numberOfHammingRounds = 25000
     
     func testFindNeighbors() {
         let p1 = VPTreePoint(x: 0, y: 0)
@@ -29,7 +31,17 @@ class VPTreeTests: XCTestCase {
         XCTAssertEqual(founds.count, 2)
     }
     
-    #warning("TODO: Restore measurement test.")
+    func testPerformanceOfHamming() {
+        measure {
+            var photos = [Photo]()
+            
+            (0 ..< numberOfHammingRounds).forEach { i in
+                photos.append(Photo(id: i, pHash: random64()))
+            }
+            
+            let _ = VPTree(elements: photos)
+        }
+    }
     
     // MARK: - Internals
     
@@ -60,4 +72,9 @@ class VPTreeTests: XCTestCase {
             return Int((((i + (i >> 4)) & 0x0F0F0F0F) * 0x01010101) >> 24)
         }
     }
+    
+    private func random64() -> UInt64 {
+        return UInt64.random(in: UInt64(0)..<UINT64_MAX)
+    }
+    
 }
