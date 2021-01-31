@@ -1,3 +1,5 @@
+import Foundation
+
 struct PriorityQueue<T> {
     private var _items: [(weight: Double, item: T)] = []
     var limit: Int?

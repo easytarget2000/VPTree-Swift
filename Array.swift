@@ -1,4 +1,6 @@
-private func split<T: Comparable>(
+import Foundation
+
+private func splitArray<T: Comparable>(
     _ array: inout [T],
     _ nbItemLeft: Int,
     _ nbItemRight: Int
@@ -47,11 +49,11 @@ private func split<T: Comparable>(
     
     if left.count > nbItemLeft {
         let sub: (left: [T], right: [T])
-            = split(&left, nbItemLeft, nbItemRight - right.count)
+            = splitArray(&left, nbItemLeft, nbItemRight - right.count)
         return (sub.left, right + sub.right)
     } else if right.count > nbItemRight {
         let sub: (left: [T], right: [T])
-            = split(&right, nbItemLeft - left.count, nbItemRight)
+            = splitArray(&right, nbItemLeft - left.count, nbItemRight)
         return (left + sub.left, sub.right)
     } else {
         return (left, right)
@@ -65,7 +67,7 @@ internal extension Array {
         var array: Array<T> = self.map {
             return $0 as! T
         }
-        return VPTree.split(&array, count-mid, mid)
+        return splitArray(&array, count-mid, mid)
     }
     
 }

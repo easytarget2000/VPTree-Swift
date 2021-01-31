@@ -1,3 +1,5 @@
+import Foundation
+
 private func <<T>(left: VPoint<T>, right: VPoint<T>) -> Bool {
     return left.d < right.d
 }
@@ -56,8 +58,7 @@ internal final class VPNode<T: Distance> {
             item.d = item.point ~~ self.vpPoint
         }
         
-        let splitElements: (left: [VPoint<T>], right: [VPoint<T>])
-            = elements.splitByMedian()
+        let splitElements: (left: [VPoint<T>], right: [VPoint<T>]) = elements.splitByMedian()
         
         mu = splitElements.left.last!.d
         leftChild = VPNode(elements: splitElements.left)

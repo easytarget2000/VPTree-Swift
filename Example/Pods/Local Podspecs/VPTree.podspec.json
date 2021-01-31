@@ -1,0 +1,22 @@
+{
+  "name": "VPTree",
+  "version": "0.1.0",
+  "summary": "A short description of VPTree.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/easytarget2000/VPTree",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "easytarget2000": "michel@easy-target.eu"
+  },
+  "source": {
+    "git": "https://github.com/easytarget2000/VPTree.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "VPTree/Classes/**/*"
+}

@@ -1,0 +1,6 @@
+framework module VPTree {
+  umbrella header "VPTree-umbrella.h"
+
+  export *
+  module * { export * }
+}

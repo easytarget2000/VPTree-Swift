@@ -1,0 +1,6 @@
+framework module Pods_VPTree_Example {
+  umbrella header "Pods-VPTree_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
