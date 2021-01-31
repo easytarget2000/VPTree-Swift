@@ -5,6 +5,10 @@
 [![License](https://img.shields.io/cocoapods/l/VPTree.svg?style=flat)](https://cocoapods.org/pods/VPTree)
 [![Platform](https://img.shields.io/cocoapods/p/VPTree.svg?style=flat)](https://cocoapods.org/pods/VPTree)
 
+Fork of [lchenay/VPTree-Swift](https://github.com/lchenay/VPTree-Swift), which in turn is inspired by [huyng/algorithms](https://github.com/huyng/algorithms/blob/master/vptree/vptree.py) for Python.
+
+The purpose of this fork is to update the repository to the latest Swift 5 changes.
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.

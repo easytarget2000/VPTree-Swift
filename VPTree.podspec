@@ -17,9 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  s.description      = "Fork of lchenay/VPTree-Swift, which in turn is inspired by huyng/algorithms for Python. The purpose of this fork is to update the repository to the latest Swift 5 changes."
 
   s.homepage         = 'https://github.com/easytarget2000/VPTree'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
