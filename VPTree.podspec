@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'VPTree'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'A vantage-point data structure for efficient nearest neighbor searching.'
 
 # This description is used to generate tags and improve search results.
