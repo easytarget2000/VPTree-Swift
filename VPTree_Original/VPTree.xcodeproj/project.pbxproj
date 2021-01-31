@@ -18,7 +18,6 @@
 		6FA8D8121B235A0900821B73 /* PriorityQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA8D80E1B23449600821B73 /* PriorityQueue.swift */; };
 		6FA8D8141B24996E00821B73 /* ArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA8D8131B24996E00821B73 /* ArrayTests.swift */; };
 		6FA8D8161B2499B000821B73 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA8D8151B2499B000821B73 /* Array.swift */; };
-		6FA8D8171B249CFF00821B73 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA8D8151B2499B000821B73 /* Array.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -243,7 +242,6 @@
 				6FA8D8141B24996E00821B73 /* ArrayTests.swift in Sources */,
 				6FA8D8121B235A0900821B73 /* PriorityQueue.swift in Sources */,
 				6FA8D7FF1B23417E00821B73 /* VPTreeTests.swift in Sources */,
-				6FA8D8171B249CFF00821B73 /* Array.swift in Sources */,
 				6FA8D8101B235A0600821B73 /* VPNode.swift in Sources */,
 				6FA8D8111B235A0700821B73 /* VPTree.swift in Sources */,
 			);
